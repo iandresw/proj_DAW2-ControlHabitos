@@ -1,3 +1,3 @@
 import { createApp } from "./app.js";
-
-createApp();
+import { Usuario } from "./models/Usuario.js";
+createApp(Usuario);

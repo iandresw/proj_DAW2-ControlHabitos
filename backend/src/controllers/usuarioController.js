@@ -4,8 +4,8 @@ import { config } from "dotenv";
 config({ path: "./src/.env" }); //
 config();
 export class UsuarioController {
-  constructor(Usuario) {
-    this.usuario = Usuario;
+  constructor(usuario) {
+    this.usuario = usuario;
   }
 
   login = async (req, res, next) => {
@@ -30,8 +30,8 @@ export class UsuarioController {
 
   register = async (req, res, next) => {
     try {
-      const { nombres, apellidos, correo, contrasenia } = req.body;
-      if (!nombres || !apellidos || !correo || !contrasenia) {
+      const { nombre, correo, contrasenia } = req.body;
+      if (!nombre || !correo || !contrasenia) {
         return res.status(400).json({ message: "Campos requeridos" });
       }
       const usuario = await this.usuario.findOne({
@@ -43,16 +43,14 @@ export class UsuarioController {
       const satlRound = "M1";
 
       const new_usuario = await this.usuario.create(
-        (nombres = nombres),
-        (apellidos = apellidos),
+        (nombre = nombre),
         (correo = correo),
         (contrasenia = contrasenia)
       );
       const token = await jwt.sign(
         {
           correo: new_usuario.correo,
-          nombres: new_usuario.nombres,
-          nombres: new_usuario.apellidos,
+          nombre: new_usuario.nombre,
         },
         process.env.JWT_SECRET,
         {
@@ -85,9 +83,9 @@ export class UsuarioController {
   update = async (req, res, next) => {
     try {
       const { id } = req.params;
-      const { nombres, apellidos, correo, contrasenia } = req.body;
+      const { nombre, correo, contrasenia } = req.body;
 
-      if (!nombres || !apellidos || !correo || !contrasenia) {
+      if (!nombre || !correo || !contrasenia) {
         return res.status(400).json({ message: "Campos requeridos" });
       }
 
@@ -97,8 +95,7 @@ export class UsuarioController {
         return res.status(404).json({ message: "Usuario no existe" });
       }
 
-      usuario.nombres = nombres;
-      usuario.apellidos = apellidos;
+      usuario.nombre = nombre;
       usuario.correo = correo;
       usuario.contrasenia = contrasenia;
 
@@ -115,7 +112,7 @@ export class UsuarioController {
     try {
       const { id } = req.params;
       const result = await this.usuario.destroy({
-        where: { id: id },
+        where: { id_usuario: id },
       });
 
       if (result === 0) {

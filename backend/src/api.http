@@ -1,0 +1,167 @@
+### TODOS LOS USUARIOS
+GET http://localhost:4000/api/usuario
+
+### CREAR USUARIO
+POST http://localhost:4000/api/usuario/register
+Content-Type: application/json
+{ 
+    "nombre": "Rene Andres",
+    "correo": "abejarano@unitec.edu",
+    "contrasenia_plana": "12345" 
+}
+### EDITAR USUARIO USUARIO ID_USUARIO
+POST http://localhost:4000/api/usuario/1
+Content-Type: application/json
+{
+    "nombre":"Manuel Rodriguez",
+    "correo": "mrodriguez@unitec.edu",
+    "estado" :0
+} 
+### ELIMINAR USUARIO USUARIO ID_USUARIO
+DELETE http://localhost:4000/api/usuario/1
+
+### USUARIO POR ID_USUARIO
+GET http://localhost:4000/api/usuario/2
+
+### INICIO SESION
+POST http://localhost:4000/api/usuario/login
+Content-Type: application/json
+{ 
+    "correo": "abejarano@unitec.edu",
+    "contrasenia_plana": "12345" 
+}
+
+
+
+### --------------CATEGORIAS------------
+### TODAS LAS CATEGORIAS
+GET http://localhost:4000/api/categoria
+
+### CREAR CATEGORIA
+POST http://localhost:4000/api/categoria/crear
+Content-Type: application/json
+{ 
+    "nombre":"Fisico 2",
+    "descripcion":"Actividad vespertina "
+}
+### EDITAR CATEGORIA
+PUT http://localhost:4000/api/categoria/1
+Content-Type: application/json
+{ 
+    "nombre":"Fisico 2",
+    "descripcion":"Actividad vespertina"
+}
+### ELIMINAR CATEGORIA
+DELETE http://localhost:4000/api/categoria/1
+
+### OBTENER CATEGORIA POR ID_CATEGORIA
+GET http://localhost:4000/api/categoria/1
+
+###---------------------HABITO--------------
+
+###OBTENER TODOS LOS HABITOS
+GET http://localhost:4000/api/habito
+
+### CREAR HABITO
+POST http://localhost:4000/api/habito/crear
+Content-Type: application/json
+{ 
+    "id_usuario":1,
+    "id_categoria":1,
+    "nombre":"salir a correr",
+    "descripcion":"correr",
+    "unidad_medida":"metros",
+    "meta":100,
+    "duracion":1
+}
+
+### EDITAR HABITO
+PUT http://localhost:4000/api/habito/1
+Content-Type: application/json
+{ 
+    "nombre":"mueva meta",
+    "descripcion":"comenzar de nuevo",
+    "meta":1520,
+    "duracion":52 
+}
+
+### ELIMINAR HABITO 
+DELETE http://localhost:4000/api/habito/1
+
+### OBTENER HABITO POR ID_HABITO
+GET http://localhost:4000/api/habito/2
+
+### OBTENER HABITO POR ID_USUARIO
+GET http://localhost:4000/api/habito/usuario/1
+
+### ----------------- PROGRESO
+
+####OBTENER TODOS LOS PROGRESOS
+GET http://localhost:4000/api/progreso
+
+### CREAR PROGRESO
+POST http://localhost:4000/api/progreso/crear
+Content-Type: application/json
+{ 
+    "id_habito":1,
+    "fecha_inicio":"2025-01-01",
+    "valor_inicial":1.0,
+    "valor_final":4.0,
+    "observaciones":"iniciamos con todo",
+    "id_usuario":1,
+    "id_categoria":1,
+    "meta":100,
+    "duracion":100,
+    "nombre":"sALIR A CORRER"
+}
+
+### EDITAR PROGRESO 
+PUT http://localhost:4000/api/progreso/1
+Content-Type: application/json
+ {
+    "valor_final":85,
+    "observaciones":"cambio"
+}
+
+### ELIMINAR PROGRESO 
+DELETE http://localhost:4000/api/progreso/1
+
+### OBTENER PROGRESO POR ID_PROGRESO
+GET http://localhost:4000/api/progreso/2
+
+### OBTENER PROGRESO POR ID_HABITO
+http://localhost:4000/api/progreso/habito/1
+
+
+###---------------REGISTRO HABITO----------------
+
+### OBETENER TODOS LOS REGISTROS DE HABITOS
+GET http://localhost:4000/api/registroHabito
+
+
+### CREAR UN NUEVO REGISTRO DE HABITOS
+POST http://localhost:4000/api/registroHabito/crear
+Content-Type: application/json
+{
+    "id_habito":1, 
+    "fecha":"2023-02-01",
+    "realizado":1,
+    "valor":100
+}
+
+### EDITAR REGISTRO DE HABITOS
+PUT http://localhost:4000/api/registroHabito/1
+Content-Type: application/json
+{"valor":500}
+
+### ELIMINAR REGISTRO DE HABITOS POR ID_REGSITRO
+DELETE http://localhost:4000/api/registroHabito/1
+
+
+### OBTENER REGISTRO DE HABITOS POR HABITO
+GET http://localhost:4000/api/registroHabito/habito/1
+
+### REGISTRO DE HABITOS BY  ID_RESGITROS
+GET http://localhost:4000/api/registroHabito/1
+
+

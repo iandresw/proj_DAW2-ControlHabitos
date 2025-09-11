@@ -1,23 +1,20 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../config/database.js";
+import { createApp } from "../app.js";
 
 export const Usuario = sequelize.define(
   "Usuario",
   {
-    id: {
+    id_usuario: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: false,
+      autoIncrement: true,
     },
-    nombres: {
-      type: DataTypes.STRING,
-    },
-    apellidos: {
+    nombre: {
       type: DataTypes.STRING,
     },
     correo: {
       type: DataTypes.STRING,
-      defaultValue: null,
     },
     contrasenia: {
       type: DataTypes.STRING,
@@ -25,7 +22,6 @@ export const Usuario = sequelize.define(
     },
     fecha_registro: {
       type: DataTypes.DATE,
-      defaultValue: null,
     },
     estado: {
       type: DataTypes.BOOLEAN,
@@ -37,3 +33,5 @@ export const Usuario = sequelize.define(
     timestamps: false,
   }
 );
+
+//createApp({ Usuario: Usuario });

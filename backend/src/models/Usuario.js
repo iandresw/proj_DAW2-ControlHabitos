@@ -8,14 +8,13 @@ export const Usuario = sequelize.define(
     id_usuario: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: false,
+      autoIncrement: true,
     },
     nombre: {
       type: DataTypes.STRING,
     },
     correo: {
       type: DataTypes.STRING,
-      defaultValue: null,
     },
     contrasenia: {
       type: DataTypes.STRING,
@@ -23,7 +22,6 @@ export const Usuario = sequelize.define(
     },
     fecha_registro: {
       type: DataTypes.DATE,
-      defaultValue: null,
     },
     estado: {
       type: DataTypes.BOOLEAN,

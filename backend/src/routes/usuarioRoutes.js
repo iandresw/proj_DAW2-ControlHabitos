@@ -7,8 +7,8 @@ export const createUsuarioRouter = (usuario) => {
   usuarioRouter.post("/login", usuarioController.login);
   usuarioRouter.post("/register", usuarioController.register);
   usuarioRouter.get("/", usuarioController.getAll);
-  usuarioRouter.delete("/:id", usuarioController.delete);
-  usuarioRouter.put("/:id", usuarioController.update);
-  usuarioRouter.get("/:id", usuarioController.usuarioById);
+  usuarioRouter.delete("/:id_usuario", usuarioController.delete);
+  usuarioRouter.put("/:id_usuario", usuarioController.update);
+  usuarioRouter.get("/:id_usuario", usuarioController.usuarioById);
   return usuarioRouter;
 };

@@ -15,7 +15,6 @@ export const Progreso = sequelize.define(
     },
     fecha_inicio: {
       type: DataTypes.DATE,
-      defaultValue: null,
     },
     valor_inicial: {
       type: DataTypes.FLOAT,

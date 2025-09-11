@@ -11,10 +11,10 @@ export const Categoria = sequelize.define(
       autoIncrement: true,
     },
     nombre: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(50),
     },
     descripcion: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(100),
     },
   },
   {

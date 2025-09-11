@@ -38,14 +38,16 @@ export class HabitoController {
           .json({ message: "Ya tiene un habito bajo ese nombre" });
       }
 
-      const new_habito = await this.usuario.create(
-        (id_usuario = id_usuario),
-        (id_categoria = id_categoria)((nombre = nombre)),
-        (descripcion = descripcion)((unidad_medida = unidad_medida)),
-        (meta = meta)((fecha_inicio = Date.now().toExponential()))(
-          (duracion = duracion)
-        )
-      );
+      const new_habito = await this.habito.create({
+        id_usuario,
+        id_categoria,
+        nombre,
+        descripcion,
+        unidad_medida,
+        meta,
+        fecha_inicio: new Date().toISOString(),
+        duracion,
+      });
 
       res.status(200).json({ new_habito });
     } catch (error) {
@@ -58,11 +60,11 @@ export class HabitoController {
   getAll = async (req, res, next) => {
     try {
       const habitos = await this.habito.findAll();
-      if (habitos !== null) {
+      if (habitos.length === 0) {
         return res.status(401).json({ message: "No hay Habitos no hay" });
       }
 
-      res.status(200).json(usuarios);
+      res.status(200).json(habitos);
     } catch (error) {
       res
         .status(500)

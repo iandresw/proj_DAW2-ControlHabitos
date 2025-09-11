@@ -1,4 +1,8 @@
 import { createApp } from "./app.js";
-import { Usuario } from "../src/models/Usuario.js";
+
+import { Categoria } from "./models/Categoria.js";
 import { Habito } from "./models/Habito.js";
-createApp({ usuario: Usuario, habito: Habito });
+import { Progreso } from "./models/Progreso.js";
+import { RegistoHabito } from "./models/RegistroHabito.js";
+import { Usuario } from "./models/Usuario.js";
+createApp(Categoria, Habito, Progreso, RegistoHabito, Usuario);

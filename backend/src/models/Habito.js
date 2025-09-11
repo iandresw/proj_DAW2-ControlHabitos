@@ -17,26 +17,22 @@ export const Habito = sequelize.define(
       type: DataTypes.INTEGER,
     },
     nombre: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(50),
     },
     descripcion: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(100),
     },
     unidad_medida: {
-      type: DataTypes.STRING,
-      defaultValue: null,
+      type: DataTypes.STRING(20),
     },
     meta: {
       type: DataTypes.FLOAT,
-      defaultValue: true,
     },
     fecha_inicio: {
       type: DataTypes.DATEONLY,
-      defaultValue: true,
     },
     duracion: {
       type: DataTypes.FLOAT,
-      defaultValue: true,
     },
   },
   {
